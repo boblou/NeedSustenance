@@ -1,10 +1,10 @@
 class Restaurant
-	include MongoMapper::Document
+  include MongoMapper::Document
 
-	key :name,	String
-	key :rating,	String
-	key :distance,	String
-	key :price,	String
-	key :cuisine,	String
+  key :name, String
+  key :rating, Integer
+  key :distance, String
+  key :avgPrice, Integer
+  key :cuisine, String
 
 end
