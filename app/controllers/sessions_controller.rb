@@ -1,16 +1,20 @@
 class SessionsController < ApplicationController
-#add exception	
+
 	def create
 		user = User.find_by_email(params[:session][:email].downcase)
-		session[:current_user_id] = user.id
-		render 'new'
+		if user
+			session[:user_id] = user.id
+			redirect_to restaurants_url
+		else
+			render "new"
+		end
 	end
 
-	def new	
+	def new
 	end
 
 	def destroy
-		@_current_user = session[:current_user_id] = nil
+		session[:user_id] = nil
 		flash[:notice] = "You have successfully logged out"
 		redirect_to root_url
 	end
