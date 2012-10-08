@@ -16,10 +16,10 @@ desc "Top 3 movies filter"
 		end
 	    
 	    best3Movies = movies.sort_by { |title, rating| rating }.first(3)
-
-	    puts "And the top three movies are"
-	 	puts "1) " + ordered_movies[0][0]
+   	    
+   	    puts "And the top three movies are"
+		puts "1) " + ordered_movies[0][0]
 		puts "2) " + ordered_movies[1][0]
 		puts "3) " + ordered_movies[2][0]
-    end
+	end
 end
