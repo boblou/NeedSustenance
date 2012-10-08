@@ -15,13 +15,6 @@ desc "Top 3 movies filter"
 	    	end
 		end
 	    
-		# movieTotals = Hash.new(0)
-  #       CSV.foreach("lib/assets/movies.csv", 'r') do |row|
-  #           row.each do |entry|
-  #               movieTotals[entry.split(":").last] += Integer(entry.split(":").first)
- 	#     	end
- 	#     end
-
 	    best3Movies = movieTotals.sort_by { |title, rating| rating }.first(3)
 
    	    puts "And the top three movies are..."
