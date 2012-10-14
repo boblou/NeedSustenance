@@ -6,4 +6,6 @@ class User
 
   many :restaurants
 
+  validates :email, :uniqueness => { :message => " has already been registered" }
+
 end

@@ -1,0 +1,21 @@
+<% @restaurants.each do |restaurant| %>
+   <!--  <td><%= restaurant.name %></td>
+    <td><%= restaurant.rating %></td>
+    <td><%= restaurant.distance %></td>
+    <td><%= restaurant.avgPrice %></td>
+    <td><%= restaurant.cuisine %></td>
+    <td><%= link_to 'Show', restaurant %></td>
+    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+    <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+
+    <h3><%= restaurant.name %></h3>
+    <h4><%= restaurant.cuisine %><h4>
+    <ul>
+        <li>Distance: <%= restaurant.distance %></li>
+        <li>Average Price: <%= restaurant.avgPrice %></li>
+        <li>Rating: <%= restaurant.rating %></li>
+    </ul>
+
+  <% end %>
+
+<br />
