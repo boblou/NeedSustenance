@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 			if current_user
 				return true
 			else
-				redirect_to root_url
+				redirect_to "/signin"
 			end
 
 		# if current_user.nil?
