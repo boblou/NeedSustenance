@@ -8,8 +8,12 @@
           <li><a href="/restaurants">Restaurants</a></li>
         </ul>
         <ul class="nav pull-right">
+          <% if @current_user.nil? %>
           <li><%= link_to "Sign in",    root_path %></li>
+          <% else %>
+          <li><%= link_to @current_user.email, @current_user %></li>
           <li><a href="/signout">Sign out</a></li>
+          <% end %>
         </ul>
       </nav>
     </div>
