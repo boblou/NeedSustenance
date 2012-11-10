@@ -7,8 +7,6 @@ class Restaurant
   key :avgPrice,	Integer
   key :cuisine,	String
 
-  belongs_to :users
-
   validates :name, :presence => true
 
 end

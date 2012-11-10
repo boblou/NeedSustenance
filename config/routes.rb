@@ -1,11 +1,13 @@
 NeedSustenance::Application.routes.draw do
+  resources :selections
+
   resources :restaurants
   resources :users
   resources :sessions
 
   root :to => "restaurants#index"
 
-  match '/signup',  to: 'users#new'
+  match '/signup',  to: 'users#new', :as => :signup
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
 

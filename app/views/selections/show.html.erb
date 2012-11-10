@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @selection.name %>
+</p>
+
+<p>
+	<b>Restaurants:</b>
+	<ol>
+      <% @selection.restaurants.each do |restaurant| %>
+        <%= render :partial =>'restaurant', :locals => {:restaurant => restaurant} %>
+      <% end %>
+      
+    </ol>
+
+
+<%= link_to 'Edit', edit_selection_path(@selection) %> |
+<%= link_to 'Back', selections_path %>

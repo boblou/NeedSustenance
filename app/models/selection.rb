@@ -1,7 +1,13 @@
 class Selection
   include MongoMapper::Document
 
-  key :content, String
-  key :user_id, Integer
+  # extend FriendlyId
+  # friendly_id :name
 
+  key :name, String
+
+  belongs_to :user
+
+  key :restaurant_ids , Array
+  many :restaurants, :in => :restaurant_ids
 end
