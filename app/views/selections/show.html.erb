@@ -12,11 +12,9 @@ by <%= @selection.user.name %>
 	Restaurants:
 </h3>	
 <br />
-  <ol>
       <% @selection.restaurants.each do |restaurant| %>
         <%= render :partial =>'restaurant', :locals => {:restaurant => restaurant} %>
       <% end %>
-  </ol>
 
 
 
