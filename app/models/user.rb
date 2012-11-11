@@ -6,6 +6,9 @@ class User
 
   many :selections
 
+  validates :name, :presence => true
+  validates :email, :presence => true
+
   validates :email, :uniqueness => { :message => " has already been registered" }
 
 end

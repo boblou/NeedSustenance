@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
+<h1>
   <%= @selection.name %>
-</p>
+</h1>
+<h2>
+by <%= @selection.user.name %>
+</h2>
 
-<p>
-	<b>Restaurants:</b>
-	<ol>
+
+<h3>
+	Restaurants:
+</h3>	
+<br />
+  <ol>
       <% @selection.restaurants.each do |restaurant| %>
         <%= render :partial =>'restaurant', :locals => {:restaurant => restaurant} %>
       <% end %>
-      
-    </ol>
+  </ol>
 
 
-<%= link_to 'Edit', edit_selection_path(@selection) %> |
-<%= link_to 'Back', selections_path %>
+
+<%= link_to 'Go back to your selections', selections_path, class:'btn' %>

@@ -10,4 +10,8 @@ class Selection
 
   key :restaurant_ids , Array
   many :restaurants, :in => :restaurant_ids
+  
+  validates :name, :presence => true
+  validates :name, :uniqueness => { :name => " has already been used" }
+
 end

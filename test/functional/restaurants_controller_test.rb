@@ -18,7 +18,7 @@ class RestaurantsControllerTest < ActionController::TestCase
 
   test "should create restaurant" do
     assert_difference('Restaurant.count') do
-      post :create, restaurant: { avgPrice: @restaurant.avgPrice, cuisine: @restaurant.cuisine, distance: @restaurant.distance, name: @restaurant.name, rating: @restaurant.rating }
+      post :create, restaurant: { avgPrice: @restaurant.avgPrice, cuisine: @restaurant.cuisine, location: @restaurant.location, name: @restaurant.name, rating: @restaurant.rating }
     end
 
     assert_redirected_to restaurant_path(assigns(:restaurant))
@@ -35,7 +35,7 @@ class RestaurantsControllerTest < ActionController::TestCase
   end
 
   test "should update restaurant" do
-    put :update, id: @restaurant, restaurant: { avgPrice: @restaurant.avgPrice, cuisine: @restaurant.cuisine, distance: @restaurant.distance, name: @restaurant.name, rating: @restaurant.rating }
+    put :update, id: @restaurant, restaurant: { avgPrice: @restaurant.avgPrice, cuisine: @restaurant.cuisine, location: @restaurant.location, name: @restaurant.name, rating: @restaurant.rating }
     assert_redirected_to restaurant_path(assigns(:restaurant))
   end
 

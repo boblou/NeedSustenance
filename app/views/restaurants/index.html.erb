@@ -1,11 +1,13 @@
 <h1>Restaurants</h1>
 
+
 <%= render 'list' %>
-<!-- <table>
+<!-- 
+<table>
   <tr>
     <th>Name</th>
     <th>Rating</th>
-    <th>Distance</th>
+    <th>Location</th>
     <th>Avgprice</th>
     <th>Cuisine</th>
     <th></th>
@@ -17,7 +19,7 @@
   <tr>
     <td><%= restaurant.name %></td>
     <td><%= restaurant.rating %></td>
-    <td><%= restaurant.distance %></td>
+    <td><%= restaurant.location %></td>
     <td><%= restaurant.avgPrice %></td>
     <td><%= restaurant.cuisine %></td>
     <td><%= link_to 'Show', restaurant %></td>
@@ -26,8 +28,5 @@
   </tr>
 <% end %>
 </table> -->
-
-<br />
-
 
 <%= link_to 'New Restaurant', new_restaurant_path, class: "btn" %>

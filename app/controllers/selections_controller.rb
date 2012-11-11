@@ -1,10 +1,17 @@
 class SelectionsController < ApplicationController
-  skip_before_filter :require_user, :only => [:show, :index]
+  skip_before_filter :require_user, :only => [:show]
 
   # GET /selections
   # GET /selections.json
   def index
-    @selections = Selection.all
+    @selections = []
+    Selection.all.each do |selection|
+      if selection.user != nil
+        if selection.user.email == @current_user.email
+        @selections.push(selection)
+        end
+      end 
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,12 +52,11 @@ class SelectionsController < ApplicationController
   # POST /selections.json
   def create
     @selection = Selection.new(params[:selection])
-    @selection.user_id = @current_user.object_id
+    @selection.user=@current_user
+    @current_user.selections.push(@selection)
     params[:display].each do |key, val|
       if val != "0"
         @selection.restaurants.push(Restaurant.find(key))
-      # else
-      #   @selection.restaurants.destroy(Restaurant.find(key))
       end
     end
 
@@ -69,11 +75,12 @@ class SelectionsController < ApplicationController
   # PUT /selections/1.json
   def update
     @selection = Selection.find(params[:id])
-    # if val != "0"
-    #     @selection.restaurants.push(Restaurant.find(key))
-    #   # else
-    #   #   @selection.restaurants.destroy(Restaurant.find(key))
-    #   end
+    @selection.restaurants = {}
+    params[:display].each do |key, val|
+      if val != "0"
+        @selection.restaurants.push(Restaurant.find(key))
+      end
+    end
 
 
 

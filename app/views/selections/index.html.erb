@@ -1,41 +1,26 @@
-<h1>Listing selections</h1>
+<h1>Your Selections</h1>
 
-<% if @current_user.nil? %>
-  <ol>
+<%= render 'list' %>
 
-  <% @selections.each do |selection| %>
-    <tr>
-      <li><%= selection.name %> at <%= link_to "URL Here", selection %></li>
-  <% end %>
-  </ol>
-  <p>Sign in to see your collections!</p>
-  <li><%= link_to "Sign in",    "/signin" %></li>
 
-<% else %>
 
-  <table>
+<!--   <table>
     <tr>
       <th>Name</th>
-      <th></th>
+      <th>Public URL</th>
       <th></th>
       <th></th>
     </tr>
-
-  <% @current_user.selections.each do |selection| %>
+  <% @selections.each do |selection| %>
     <tr>
-      <td><%= selection.name %></td>
-      <td><%= link_to 'Show', selection %></td>
+      <td><%= link_to selection.name, selection %></td>
+      <td><%= link_to 'needsustenance.com/selections/'+selection.name, selection %></td>
       <td><%= link_to 'Edit', edit_selection_path(selection) %></td>
       <td><%= link_to 'Destroy', selection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </table>
 
-<% end %>
-
-
-
-
 <br />
-
-<%= link_to 'New Selection', new_selection_path %>
+ -->
+<%= link_to 'New Selection', new_selection_path, class: "btn" %>

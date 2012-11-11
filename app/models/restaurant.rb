@@ -1,11 +1,11 @@
 class Restaurant
   include MongoMapper::Document
 
-  key :name,	String
-  key :rating,	Integer
-  key :distance,	String
-  key :avgPrice,	Integer
-  key :cuisine,	String
+  key :name, String
+  key :rating, Integer
+  key :location, String
+  key :avgPrice, Float
+  key :cuisine, String
 
   validates :name, :presence => true
 
