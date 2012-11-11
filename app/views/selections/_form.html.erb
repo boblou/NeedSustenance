@@ -12,21 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Name of selection" %><br />
     <%= f.text_field :name %>
   </div>
 
-<!--   PUT USER ID IN -->
-
   <div class="field">
-    <%= f.label :restaurant_ids %><br />
+    <%= f.label :restaurant_ids, "Choose restaurants to be in your selection" %><br />
    
-    <ol>
+    <table>
       <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td>
         <%= check_box("display", restaurant.id) %>
+        </td>
+        <td>
         <%= render :partial =>'restaurant', :locals => {:restaurant => restaurant} %>
-
+        </td>
       <% end %>
+    </table>
+
       
     </ol>
   </div>
