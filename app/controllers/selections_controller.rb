@@ -25,7 +25,6 @@ class SelectionsController < ApplicationController
   def show
     @selection = Selection.find_by_name(params[:id].sub("-"," "))
     @current_user = current_user
-    # render :layout => "selectionshow"
 
     respond_to do |format|
       format.html # show.html.erb
