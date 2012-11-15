@@ -1,9 +1,6 @@
 class Selection
   include MongoMapper::Document
 
-  # extend FriendlyId
-  # friendly_id :name
-
   key :name, String
 
   belongs_to :user
@@ -13,5 +10,9 @@ class Selection
   
   validates :name, :presence => true
   validates :name, :uniqueness => { :name => " has already been used" }
+
+  def to_param
+  	"#{name}".parameterize
+  end
 
 end

@@ -1,5 +1,6 @@
 class SelectionsController < ApplicationController
   skip_before_filter :require_user, :only => [:show]
+  layout "selectionshow", :only => [:show]
 
   # GET /selections
   # GET /selections.json
@@ -22,7 +23,9 @@ class SelectionsController < ApplicationController
   # GET /selections/1
   # GET /selections/1.json
   def show
-    @selection = Selection.find(params[:id])
+    @selection = Selection.find_by_name(params[:id].sub("-"," "))
+    @current_user = current_user
+    # render :layout => "selectionshow"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,7 +47,7 @@ class SelectionsController < ApplicationController
 
   # GET /selections/1/edit
   def edit
-    @selection = Selection.find(params[:id])
+    @selection = Selection.find_by_name(params[:id].sub("-"," "))
     @restaurants = Restaurant.all
   end
 
@@ -74,7 +77,7 @@ class SelectionsController < ApplicationController
   # PUT /selections/1
   # PUT /selections/1.json
   def update
-    @selection = Selection.find(params[:id])
+    @selection = Selection.find_by_name(params[:id].sub("-"," "))
     @selection.restaurants = {}
     params[:display].each do |key, val|
       if val != "0"
@@ -98,7 +101,7 @@ class SelectionsController < ApplicationController
   # DELETE /selections/1
   # DELETE /selections/1.json
   def destroy
-    @selection = Selection.find(params[:id])
+    @selection = Selection.find_by_name(params[:id].sub("-"," "))
     @selection.destroy
 
     respond_to do |format|
